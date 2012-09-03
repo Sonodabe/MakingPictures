@@ -41,6 +41,8 @@ void fill(int r, int g, int b);
 void fill(int greyScale);
 void clearBackground(uint8_t* data);
 void drawRect(int posX, int posY, int width, int height, uint8_t* data);
+void drawLine(int xOne, int yOne, int xTwo, int yTwo, uint8_t* data);
+void drawPixel(int index, uint8_t* data);
 
 //Color variables
 int red = 0;
@@ -62,17 +64,25 @@ void MakingPicturesApp::update()
 {
     uint8_t* data_array = (*my_surface_).getData();
     clearBackground(data_array);
-    
-    fill(0, 100, 100);
+    fill(0, 150, 150);
     drawRect(appWidth/2, appHeight/2, 80, 500, data_array);
     fill(255, 0, 0);
     drawCircle2(appWidth/2-200, appHeight/2, 200, data_array, 80);
     fill(0, 0, 255);
     drawCircle2(appWidth/2+200, appHeight/2, 200, data_array, 80);
     fill(200, 0, 200);
-    drawRect(appWidth/2, appHeight/2, 550, 150, data_array); 
+    drawRect(appWidth/2, appHeight/2, 550, 150, data_array);
+    fill(0, 0, 100);
+    drawLine(appWidth/2, appHeight/2, appWidth/2-275, appHeight/2+75, data_array);
+    drawLine(appWidth/2, appHeight/2, appWidth/2+275, appHeight/2+75, data_array);
+
     fill(0, 255, 0);
     drawCircle(appWidth/2, appHeight/2, 200, data_array, 80);
+    fill(0, 0, 100);
+    drawLine(appWidth/2, appHeight/2, appWidth/2+275, appHeight/2-75, data_array);
+    drawLine(appWidth/2, appHeight/2, appWidth/2-275, appHeight/2-75, data_array);
+
+
 }
 
 void MakingPicturesApp::prepareSettings(Settings* settings){
@@ -130,6 +140,15 @@ void clearBackground(uint8_t* data){
     }
 }
 
+void drawPixel(int index, uint8_t* data){
+    if(index>=0 && index <appHeight*appWidth*3){
+        data[index] = red;
+        data[index+1] = green;
+        data[index+2] = blue;
+    }       
+
+}
+
 /**
  *  Draws a circle using a formula based off of:
  *                x^2+y+2 = r^2
@@ -157,34 +176,20 @@ void drawCircle(int posX, int posY, int radius, uint8_t* data, int repeats){
     for(int i = max(0, posX-radius); i<min(appWidth, posX+radius); i++){
         deltaY = round(sqrt(radius*radius-(i-posX)*(i-posX)));
         index = getIndex(i, posY+deltaY);
-        if(index>=0 && index <appHeight*appWidth*3){
-            data[index] = red;
-            data[index+1] = green;
-            data[index+2] = blue;
-        }       
+        drawPixel(index, data);   
         index = getIndex(i, posY-deltaY);
-        if(index>=0 && index <appHeight*appWidth*3){
-            data[index] = red;
-            data[index+1] = green;
-            data[index+2] = blue;
-        }
+        drawPixel(index, data);
+
     }
 
     int deltaX;
     for(int i = max(0, posY-radius); i<min(appHeight, posY+radius); i++){
         deltaX = round(sqrt(radius*radius-(i-posY)*(i-posY)));
         index = getIndex(posX+deltaX, i);
-        if(index>=0 && index <appHeight*appWidth*3){
-            data[index] = red;
-            data[index+1] = green;
-            data[index+2] = blue;
-        }       
+        drawPixel(index, data);     
         index = getIndex(posX-deltaX, i);
-        if(index>=0 && index <appHeight*appWidth*3){
-            data[index] = red;
-            data[index+1] = green;
-            data[index+2] = blue;
-        }
+        drawPixel(index, data);
+
     }
     drawCircle(posX, posY, radius-1, data, repeats-1);
 }
@@ -215,11 +220,7 @@ void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats){
         tempY = posY+radius*sin(angle);
         index = getIndex(tempX, tempY);
         
-        if(index >= 0 && index < 3*appWidth*appHeight){
-            data[index] = red;
-            data[index+1] = green;
-            data[index+2] = blue;
-        }
+        drawPixel(index, data);
         //Smaller numbers allow for more precise graphing... but
         //larger numbers allow for cooler patterns.
         angle+=.01;
@@ -246,6 +247,84 @@ void drawRect(int posX, int posY, int width, int height, uint8_t* data){
                 data[index] = red;
                 data[index+1] = green;
                 data[index+2] = blue;
+            }
+        }
+    }
+}
+
+/**
+ *  Draws a line given the two endpoints of the line; uses:
+ *             (Y-y) = m(X-x)
+ *  which can be manipulated to:
+ *              Y = y+m(X-x)
+ *
+ *  @param xOne the x coordinate of one of the end points
+ *  @param yOne the y coordinate of one of the end points
+ *  @param xTwo the x coordinate of the other end point
+ *  @param yTwo the y coordinate of the other end point
+ *  @param data the pointer of the array on which the line will
+ *  be written
+ **/
+void drawLine(int xOne, int yOne, int xTwo, int yTwo, uint8_t* data){
+    int index;
+    
+    if(xOne == xTwo){
+        int bigY, smallY;
+        if(yOne > yTwo){
+            bigY = yOne;
+            smallY = yTwo;
+        }else{
+            smallY = yOne;
+            bigY = yTwo;
+        }
+        
+        for(int i = smallY; i<=bigY; i++){
+            index = getIndex(xOne, i);
+            drawPixel(index, data);
+        }
+        
+    }else{
+        if(yOne == yTwo){
+            int bigX, smallX;
+            if(xOne > xTwo){
+                bigX = xOne;
+                smallX = xTwo;
+            }else{
+                smallX = xOne;
+                bigX = xTwo;
+            }
+            
+            for(int i = smallX; i<=bigX; i++){
+                index = getIndex(i, yOne);
+                drawPixel(index, data);
+            }
+            
+        }else{
+            
+            double angle;
+            int tempY;
+            int bigX, smallX;
+            int bigY, smallY;
+            //BigY smallY referring to the y coordinate corresponding to the 
+            //larger/smaller x coordinate
+            if(xOne >= xTwo){
+                bigX = xOne;
+                bigY = yOne;
+                smallX = xTwo;
+                smallY = yTwo;
+            }else{
+                bigX = xTwo;
+                bigY = yTwo;
+                smallX = xOne;
+                smallY = yOne;
+            }
+            
+            angle = atan((double)(bigY-smallY)/(bigX-smallX));
+
+            for(int i = smallX; i<=bigX; i++){
+                tempY = round((i-smallX)*tan(angle));
+                index = getIndex(i, tempY+smallY);
+                drawPixel(index, data);
             }
         }
     }
