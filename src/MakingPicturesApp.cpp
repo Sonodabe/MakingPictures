@@ -58,11 +58,11 @@ void MakingPicturesApp::update()
 {
     uint8_t* data_array = (*my_surface_).getData();
     fill(255, 0, 0);
-    drawCircle(appWidth/2-200, 250, 200, data_array, 60);
+    drawCircle(appWidth/2-200, 250, 200, data_array);//, 60);
     fill(0, 0, 255);
-    drawCircle(appWidth/2+200, 250, 200, data_array, 60);
+    drawCircle(appWidth/2+150, 250, 200, data_array);//, 60);
     fill(0, 255, 0);
-    drawCircle(appWidth/2, 250, 200, data_array, 60);
+    drawCircle(appWidth/2, 250, 200, data_array);//, 60);
 
 }
 
@@ -84,6 +84,27 @@ int getIndex(int posX, int posY){
 void MakingPicturesApp::prepareSettings(Settings* settings){
 	(*settings).setWindowSize(appWidth,appHeight);
 	(*settings).setResizable(false);
+}
+
+void drawCircle(int posX, int posY, int radius, uint8_t* data){
+    int tempX, tempY;
+    double angle;
+    
+    int index;
+    
+    while(angle < 6.28){
+        tempX = posX+radius*sin(angle+3.14/2);
+        tempY = posY+radius*sin(angle);
+        index = getIndex(tempX, tempY);
+        
+        if(index >= 0 && index < 3*appWidth*appHeight){
+            data[index] = red;
+            data[index+1] = green;
+            data[index+2] = blue;
+        }
+        
+        angle+=.001;
+    }
 }
 
 void drawCircle(int posX, int posY, int radius, uint8_t* data, int repeats){
