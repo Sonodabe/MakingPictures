@@ -34,6 +34,7 @@ static const int textureSize = 1024;
 int getIndex(int posX, int posY);
 void drawCircle(int posX, int posY, int radius, uint8_t* data);
 void drawCircle(int posX, int posY, int radius, uint8_t* data, int repeats);
+void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats);
 void fill(int r, int g, int b);
 void fll(int greyScale);
 int red = 0;
@@ -58,11 +59,11 @@ void MakingPicturesApp::update()
 {
     uint8_t* data_array = (*my_surface_).getData();
     fill(255, 0, 0);
-    drawCircle(appWidth/2-200, 250, 200, data_array);//, 60);
+    drawCircle(appWidth/2-200, 250, 200, data_array, 60);
     fill(0, 0, 255);
-    drawCircle(appWidth/2+150, 250, 200, data_array);//, 60);
+    drawCircle(appWidth/2+200, 250, 200, data_array, 60);
     fill(0, 255, 0);
-    drawCircle(appWidth/2, 250, 200, data_array);//, 60);
+    drawCircle2(appWidth/2, 250, 200, data_array, 60);
 
 }
 
@@ -86,9 +87,11 @@ void MakingPicturesApp::prepareSettings(Settings* settings){
 	(*settings).setResizable(false);
 }
 
-void drawCircle(int posX, int posY, int radius, uint8_t* data){
+void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats){
+    if(repeats<=0)
+        return;
     int tempX, tempY;
-    double angle;
+    double angle = 0;
     
     int index;
     
@@ -105,6 +108,7 @@ void drawCircle(int posX, int posY, int radius, uint8_t* data){
         
         angle+=.001;
     }
+    drawCircle2(posX, posY, radius-1, data, repeats-1);
 }
 
 void drawCircle(int posX, int posY, int radius, uint8_t* data, int repeats){
