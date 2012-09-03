@@ -40,6 +40,7 @@ void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats);
 void fill(int r, int g, int b);
 void fill(int greyScale);
 void clearBackground(uint8_t* data);
+void drawRect(int posX, int posY, int width, int height, uint8_t* data);
 
 //Color variables
 int red = 0;
@@ -62,12 +63,16 @@ void MakingPicturesApp::update()
     uint8_t* data_array = (*my_surface_).getData();
     clearBackground(data_array);
     
+    fill(0, 100, 100);
+    drawRect(appWidth/2, appHeight/2, 80, 500, data_array);
     fill(255, 0, 0);
-    drawCircle2(appWidth/2-200, 250, 200, data_array, 80);
+    drawCircle2(appWidth/2-200, appHeight/2, 200, data_array, 80);
     fill(0, 0, 255);
-    drawCircle2(appWidth/2+200, 250, 200, data_array, 80);
+    drawCircle2(appWidth/2+200, appHeight/2, 200, data_array, 80);
+    fill(200, 0, 200);
+    drawRect(appWidth/2, appHeight/2, 550, 150, data_array); 
     fill(0, 255, 0);
-    drawCircle(appWidth/2, 250, 200, data_array, 80);
+    drawCircle(appWidth/2, appHeight/2, 200, data_array, 80);
 }
 
 void MakingPicturesApp::prepareSettings(Settings* settings){
@@ -220,6 +225,30 @@ void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats){
         angle+=.01;
     }
     drawCircle2(posX, posY, radius-1, data, repeats-1);
+}
+
+/**
+ *  Draws and fills a rectangle with a specified center point, 
+ *  width and height.
+ *
+ *  @param posX the x coordinate for the center point
+ *  @param posY the y coordinate for the center point
+ *  @param width The width of the rectangle
+ *  @param height The height of the rectangle
+ *  @param data The pointer to the array that the rect will be written
+ **/
+void drawRect(int posX, int posY, int width, int height, uint8_t* data){
+    int index;
+    for(int tempY = -height/2; tempY<=height/2; tempY++){
+        for(int tempX = -width/2; tempX<=width/2; tempX++){
+            index = getIndex(tempX+posX, tempY+posY);
+            if(index >= 0 && index < appWidth*appHeight*3){
+                data[index] = red;
+                data[index+1] = green;
+                data[index+2] = blue;
+            }
+        }
+    }
 }
 
 
