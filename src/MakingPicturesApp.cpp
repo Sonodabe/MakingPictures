@@ -1,8 +1,8 @@
-/**
+/*
  Brandon Sonoda
  CSE 274
  Homework One: Making Pictures
- **/
+ */
 
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
@@ -36,19 +36,18 @@ void drawCircle(int posX, int posY, int radius, uint8_t* data);
 void drawCircle(int posX, int posY, int radius, uint8_t* data, int repeats);
 void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats);
 void fill(int r, int g, int b);
-void fll(int greyScale);
+void fill(int greyScale);
+void clearBackground(uint8_t* data);
 int red = 0;
 int green = 0;
 int blue = 0;
-
+int count_  = 0;
 
 void MakingPicturesApp::setup()
 {
     my_surface_ = new Surface(appWidth, appHeight, false);
     uint8_t* data = (*my_surface_).getData();
-    for(int i = 0; i<appWidth*appHeight*3; i++){
-            data[i] = 255;
-    }
+    clearBackground(data);
 }
 
 void MakingPicturesApp::mouseDown( MouseEvent event )
@@ -58,13 +57,33 @@ void MakingPicturesApp::mouseDown( MouseEvent event )
 void MakingPicturesApp::update()
 {
     uint8_t* data_array = (*my_surface_).getData();
+    clearBackground(data_array);
+    if(count_>17){
     fill(255, 0, 0);
     drawCircle(appWidth/2-200, 250, 200, data_array, 60);
     fill(0, 0, 255);
     drawCircle(appWidth/2+200, 250, 200, data_array, 60);
     fill(0, 255, 0);
     drawCircle2(appWidth/2, 250, 200, data_array, 60);
+    }else{
+        fill(255, 0, 0);
+        drawCircle2(appWidth/2-200, 250, 200, data_array, 60);
+        fill(0, 0, 255);
+        drawCircle2(appWidth/2+200, 250, 200, data_array, 60);
+        fill(0, 255, 0);
+        drawCircle(appWidth/2, 250, 200, data_array, 60);
+    }
+    
+    count_++;
+    if(count_ > 34)
+        count_ = 0;
 
+}
+
+void clearBackground(uint8_t* data){
+    for(int i = 0; i<appWidth*appHeight*3; i++){
+        data[i] = 255;
+    }
 }
 
 void fill(int r, int g, int b){
