@@ -41,7 +41,6 @@ void clearBackground(uint8_t* data);
 int red = 0;
 int green = 0;
 int blue = 0;
-int count_  = 0;
 
 void MakingPicturesApp::setup()
 {
@@ -58,31 +57,18 @@ void MakingPicturesApp::update()
 {
     uint8_t* data_array = (*my_surface_).getData();
     clearBackground(data_array);
-    if(count_>17){
-    fill(255, 0, 0);
-    drawCircle(appWidth/2-200, 250, 200, data_array, 60);
-    fill(0, 0, 255);
-    drawCircle(appWidth/2+200, 250, 200, data_array, 60);
-    fill(0, 255, 0);
-    drawCircle2(appWidth/2, 250, 200, data_array, 60);
-    }else{
-        fill(255, 0, 0);
-        drawCircle2(appWidth/2-200, 250, 200, data_array, 60);
-        fill(0, 0, 255);
-        drawCircle2(appWidth/2+200, 250, 200, data_array, 60);
-        fill(0, 255, 0);
-        drawCircle(appWidth/2, 250, 200, data_array, 60);
-    }
     
-    count_++;
-    if(count_ > 34)
-        count_ = 0;
-
+    fill(255, 0, 0);
+    drawCircle2(appWidth/2-200, 250, 200, data_array, 100);
+    fill(0, 0, 255);
+    drawCircle2(appWidth/2+200, 250, 200, data_array, 100);
+    fill(0, 255, 0);
+    drawCircle(appWidth/2, 250, 200, data_array, 100);
 }
 
 void clearBackground(uint8_t* data){
     for(int i = 0; i<appWidth*appHeight*3; i++){
-        data[i] = 255;
+        data[i] = 0;
     }
 }
 
@@ -125,7 +111,7 @@ void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats){
             data[index+2] = blue;
         }
         
-        angle+=.001;
+        angle+=.01;
     }
     drawCircle2(posX, posY, radius-1, data, repeats-1);
 }
