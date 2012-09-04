@@ -40,6 +40,7 @@ void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats);
 void fill(int r, int g, int b);
 void fill(int greyScale);
 void clearBackground(uint8_t* data);
+void gradientBackground(uint8_t* data, int r1, int g1, int b1, int r2, int g2, int b2);
 void drawRect(int posX, int posY, int width, int height, uint8_t* data);
 void drawLine(int xOne, int yOne, int xTwo, int yTwo, uint8_t* data);
 void drawPixel(int index, uint8_t* data);
@@ -82,7 +83,7 @@ void MakingPicturesApp::update()
     
     
     uint8_t* data_array = (*my_surface_).getData();
-    clearBackground(data_array);
+    gradientBackground(data_array, 80, 0, 120, 0, 0, 0);
     fill(0, 150, 150);
     drawRect(vertRectX, appHeight/2, 80, 400, data_array);
     fill(255, 0, 0);
@@ -167,6 +168,23 @@ int getIndex(int posX, int posY){
 void clearBackground(uint8_t* data){
     for(int i = 0; i<appWidth*appHeight*3; i++){
         data[i] = 20;
+    }
+}
+
+void gradientBackground(uint8_t* data, int r1, int g1, int b1, int r2, int g2, int b2){
+    int index;
+    double percentAcross;
+
+    for(int tempY = 0; tempY<appHeight; tempY++){
+        for(int tempX = 0; tempX<appWidth; tempX++){
+            index = getIndex(tempX, tempY);
+            if(index >= 0 && index < appWidth*appHeight*3){
+                percentAcross = (double)tempY/appHeight;
+                data[index+0] = percentAcross*r2+(1-percentAcross)*r1;
+                data[index+1] = percentAcross*g2+(1-percentAcross)*g1;
+                data[index+2] = percentAcross*b2+(1-percentAcross)*b1;
+            }
+        }
     }
 }
 
@@ -273,11 +291,7 @@ void drawRect(int posX, int posY, int width, int height, uint8_t* data){
     for(int tempY = -height/2; tempY<=height/2; tempY++){
         for(int tempX = -width/2; tempX<=width/2; tempX++){
             index = getIndex(tempX+posX, tempY+posY);
-            if(index >= 0 && index < appWidth*appHeight*3){
-                data[index] = red;
-                data[index+1] = green;
-                data[index+2] = blue;
-            }
+            drawPixel(index, data);
         }
     }
 }
