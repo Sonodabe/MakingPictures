@@ -49,6 +49,8 @@ int red = 0;
 int green = 0;
 int blue = 0;
 
+double count_ = 0;
+
 void MakingPicturesApp::setup()
 {
     my_surface_ = new Surface(appWidth, appHeight, false);
@@ -62,27 +64,33 @@ void MakingPicturesApp::mouseDown( MouseEvent event )
 
 void MakingPicturesApp::update()
 {
+    int vertRectX = appWidth/2+300*sin(count_);
+    int horRectY = appHeight/2+50*sin(.5*(count_+3.14/2));
+    int outerCircleRad = 60+20*sin(count_+3*3.14/2);
+    int innerCircleRad = 180+20*sin(count_+3*3.14/2);
+    
+    
     uint8_t* data_array = (*my_surface_).getData();
     clearBackground(data_array);
     fill(0, 150, 150);
-    drawRect(appWidth/2, appHeight/2, 80, 500, data_array);
+    drawRect(vertRectX, appHeight/2, 80, 400, data_array);
     fill(255, 0, 0);
-    drawCircle2(appWidth/2-200, appHeight/2, 200, data_array, 80);
+    drawCircle2(appWidth/2-200, appHeight/2, 200, data_array, outerCircleRad);
     fill(0, 0, 255);
-    drawCircle2(appWidth/2+200, appHeight/2, 200, data_array, 80);
+    drawCircle2(appWidth/2+200, appHeight/2, 200, data_array, outerCircleRad);
     fill(200, 0, 200);
-    drawRect(appWidth/2, appHeight/2, 550, 150, data_array);
-    fill(0, 0, 100);
-    drawLine(appWidth/2, appHeight/2, appWidth/2-275, appHeight/2+75, data_array);
-    drawLine(appWidth/2, appHeight/2, appWidth/2+275, appHeight/2+75, data_array);
+    drawRect(appWidth/2, horRectY, 550, 150, data_array);
+    fill(0);
+    drawLine(appWidth/2, horRectY, appWidth/2-275, horRectY+75, data_array);
+    drawLine(appWidth/2, horRectY, appWidth/2+275, horRectY+75, data_array);
 
     fill(0, 255, 0);
-    drawCircle(appWidth/2, appHeight/2, 200, data_array, 80);
-    fill(0, 0, 100);
-    drawLine(appWidth/2, appHeight/2, appWidth/2+275, appHeight/2-75, data_array);
-    drawLine(appWidth/2, appHeight/2, appWidth/2-275, appHeight/2-75, data_array);
-
-
+    drawCircle(appWidth/2, appHeight/2, innerCircleRad, data_array, 105);
+    fill(0);
+    drawLine(appWidth/2, horRectY, appWidth/2+275, horRectY-75, data_array);
+    drawLine(appWidth/2, horRectY, appWidth/2-275, horRectY-75, data_array);
+    
+    count_+=.05;
 }
 
 void MakingPicturesApp::prepareSettings(Settings* settings){
@@ -136,7 +144,7 @@ int getIndex(int posX, int posY){
  **/
 void clearBackground(uint8_t* data){
     for(int i = 0; i<appWidth*appHeight*3; i++){
-        data[i] = 0;
+        data[i] = 20;
     }
 }
 
