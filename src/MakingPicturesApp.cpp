@@ -50,6 +50,7 @@ int green = 0;
 int blue = 0;
 
 double count_ = 0;
+double speed = .05;
 
 void MakingPicturesApp::setup()
 {
@@ -60,6 +61,16 @@ void MakingPicturesApp::setup()
 
 void MakingPicturesApp::mouseDown( MouseEvent event )
 {
+    int posX, posY;
+    posX = event.getX();
+    posY = event.getY();
+    
+    if(abs(appWidth-50-posX)<=20 && abs(50-posY)<=20)
+        speed = .3-speed;
+    
+    
+    
+    
 }
 
 void MakingPicturesApp::update()
@@ -89,8 +100,19 @@ void MakingPicturesApp::update()
     fill(0);
     drawLine(appWidth/2, horRectY, appWidth/2+275, horRectY-75, data_array);
     drawLine(appWidth/2, horRectY, appWidth/2-275, horRectY-75, data_array);
+
+    fill(255, 0, 0);
+    drawCircle2(appWidth-50, 50, 20, data_array, 20);
     
-    count_+=.05;
+    if(speed < .3-speed){
+    fill(0, 255, 255);
+    } else{
+        fill(0, 255, 0);
+    }
+    drawCircle2(appWidth-50, 50, 20, data_array, 5);
+
+    
+    count_+=speed;
 }
 
 void MakingPicturesApp::prepareSettings(Settings* settings){
@@ -262,9 +284,9 @@ void drawRect(int posX, int posY, int width, int height, uint8_t* data){
 
 /**
  *  Draws a line given the two endpoints of the line; uses:
- *             (Y-y) = m(X-x)
- *  which can be manipulated to:
- *              Y = y+m(X-x)
+ *             sin(angle) = deltaY /deltaX
+ *  and then just uses the different x values to determine how much
+ *  the deltaY is.
  *
  *  @param xOne the x coordinate of one of the end points
  *  @param yOne the y coordinate of one of the end points
@@ -290,25 +312,7 @@ void drawLine(int xOne, int yOne, int xTwo, int yTwo, uint8_t* data){
             index = getIndex(xOne, i);
             drawPixel(index, data);
         }
-        
     }else{
-        if(yOne == yTwo){
-            int bigX, smallX;
-            if(xOne > xTwo){
-                bigX = xOne;
-                smallX = xTwo;
-            }else{
-                smallX = xOne;
-                bigX = xTwo;
-            }
-            
-            for(int i = smallX; i<=bigX; i++){
-                index = getIndex(i, yOne);
-                drawPixel(index, data);
-            }
-            
-        }else{
-            
             double angle;
             int tempY;
             int bigX, smallX;
@@ -333,7 +337,6 @@ void drawLine(int xOne, int yOne, int xTwo, int yTwo, uint8_t* data){
                 tempY = round((i-smallX)*tan(angle));
                 index = getIndex(i, tempY+smallY);
                 drawPixel(index, data);
-            }
         }
     }
 }
