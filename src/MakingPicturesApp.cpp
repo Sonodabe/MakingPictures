@@ -1,15 +1,13 @@
 /*
+ 
  Brandon Sonoda
  CSE 274
  Homework One: Making Pictures
+ 
  */
 
 #include "cinder/app/AppBasic.h"
-#include "cinder/gl/gl.h"
 #include "cinder/gl/Texture.h"
-#include "cinder/ImageIo.h"
-#include "boost/date_time/posix_time/posix_time.hpp"
-#include "Resources.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -44,6 +42,7 @@ void gradientBackground(uint8_t* data, int r1, int g1, int b1, int r2, int g2, i
 void drawRect(int posX, int posY, int width, int height, uint8_t* data);
 void drawLine(int xOne, int yOne, int xTwo, int yTwo, uint8_t* data);
 void drawPixel(int index, uint8_t* data);
+void blurScreen(uint8_t* data);
 
 //Color variables
 int red = 0;
@@ -83,14 +82,14 @@ void MakingPicturesApp::update()
     
     
     uint8_t* data_array = (*my_surface_).getData();
-    gradientBackground(data_array, 80, 0, 120, 0, 0, 0);
-    fill(0, 150, 150);
+    gradientBackground(data_array, 100, 0, 150, 0, 0, 50);
+    fill(0, 200, 255);
     drawRect(vertRectX, appHeight/2, 80, 400, data_array);
     fill(255, 0, 0);
     drawCircle2(appWidth/2-200, appHeight/2, 200, data_array, outerCircleRad);
     fill(0, 0, 255);
     drawCircle2(appWidth/2+200, appHeight/2, 200, data_array, outerCircleRad);
-    fill(200, 0, 200);
+    fill(255, 255, 0);
     drawRect(appWidth/2, horRectY, 550, 150, data_array);
     fill(0);
     drawLine(appWidth/2, horRectY, appWidth/2-275, horRectY+75, data_array);
@@ -111,6 +110,8 @@ void MakingPicturesApp::update()
         fill(0, 255, 0);
     }
     drawCircle2(appWidth-50, 50, 20, data_array, 5);
+    
+    blurScreen(data_array);
 
     
     count_+=speed;
@@ -171,6 +172,20 @@ void clearBackground(uint8_t* data){
     }
 }
 
+
+/**
+ *  Changes the background to a gradient evenly fading from one color to another
+ *  with one base color at the top, one base color at the bottom, and an average
+ *  of the two colors directly in the middle.
+ *
+ *  @param data  The pointer of the array which will have a gradient applied
+ *  @param r1 The Red component of the top color
+ *  @param g1 The Green component of the top color
+ *  @param b1 The Blue component of the top color
+ *  @param r2 The Red component of the bottom color
+ *  @param g2 The Green component of the bottom color
+ *  @param b2 The Blue component of the bottom color
+ **/
 void gradientBackground(uint8_t* data, int r1, int g1, int b1, int r2, int g2, int b2){
     int index;
     double percentAcross;
@@ -188,6 +203,41 @@ void gradientBackground(uint8_t* data, int r1, int g1, int b1, int r2, int g2, i
     }
 }
 
+/**
+ *  Blurs each pixel by averaging itself with the nine pixels around it
+ *
+ * @param data The array that is to be blurred
+ **/
+void blurScreen(uint8_t* data){
+    int sumR, sumG, sumB;
+    int index;
+    for(int pixelY = 1; pixelY < appHeight-1; pixelY++){
+        for(int pixelX = 1; pixelX < appWidth-1; pixelX++){
+            sumR = 0;
+            sumG = 0;
+            sumB = 0;
+            for(int avgY = -1; avgY<=1; avgY++){
+                for(int avgX = -1; avgX<=1; avgX++){
+                    index = getIndex(pixelX+avgX, pixelY+avgY);
+                    sumR = sumR+data[index];
+                    sumG = sumG+data[index+1];
+                    sumB = sumB+data[index+2];
+                }
+            }
+            index = getIndex(pixelX, pixelY);
+            fill((int)(sumR/9.0), (int)(sumG/9.0), (int)(sumB/9.0));
+            drawPixel(index, data);
+        }
+    }
+}
+
+/**
+ *  "Draws" a pixel to the screen by changing the three color components found in
+ *  a specified index to those of the current red, green and blue values
+ *
+ *  @param index The Index of the data array that will be manipulated
+ *  @param data  The pointer to the array which will have a point added to it.
+ **/
 void drawPixel(int index, uint8_t* data){
     if(index>=0 && index <appHeight*appWidth*3){
         data[index] = red;
@@ -271,7 +321,7 @@ void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats){
         drawPixel(index, data);
         //Smaller numbers allow for more precise graphing... but
         //larger numbers allow for cooler patterns.
-        angle+=.01;
+        angle+=.008;
     }
     drawCircle2(posX, posY, radius-1, data, repeats-1);
 }
@@ -354,7 +404,6 @@ void drawLine(int xOne, int yOne, int xTwo, int yTwo, uint8_t* data){
         }
     }
 }
-
 
 void MakingPicturesApp::draw()
 {

@@ -4065,12 +4065,12 @@ t1346633811
 s157
 
 N/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/../src/MakingPicturesApp.cpp
-c000000005046388200000000000029E1
-t1346779266
-s10721
+c00000000504677A500000000000030BF
+t1346795429
+s12479
 
 N/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app
-t1346779258
+t1346796088
 s102
 
 N/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/Info.plist
@@ -4078,8 +4078,8 @@ t1346634552
 s1239
 
 N/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/MacOS/MakingPictures
-t1346779258
-s7808004
+t1346796088
+s7808104
 
 N/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/PkgInfo
 t1346634552
@@ -4095,8 +4095,8 @@ t1346634552
 s178
 
 N/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPicturesApp.o
-t1346779258
-s319864
+t1346796088
+s315228
 
 N/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/CinderApp.icns
 c0000000050440053000000000001BEB5
@@ -4123,11 +4123,11 @@ r0
 
 CCheck dependencies
 r0
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies35276b0370f6b541^e31c6d0370f6b541^---0#1#0#--18"Check dependencies36"E82FBB39-BAA8-40FD-B65A-C31C133F2443-
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesd9246bb9b1f6b541^df3776b9b1f6b541^---0#1#0#--18"Check dependencies36"1943D8E0-A0C1-4080-AEF3-D8EE269E05DE-
 
 CCompileC ./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPicturesApp.o "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/../src/MakingPicturesApp.cpp" normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s368472067.471601
-e368472070.415327
+s368488885.966904
+e368488888.362139
 r1
 xCompileC
 x./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPicturesApp.o
@@ -4136,7 +4136,7 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection118"Compile /Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/../src/MakingPicturesApp.cpp4fe5780370f6b541^bd526a0670f6b541^---0#0#0#-19%DVTDocumentLocation2@128"file://localhost/Users/brandonsonoda/Documents/College/SemesterThree/CSE%20274/MakingPictures/xcode/../src/MakingPicturesApp.cpp0000000000000000^2829"CompileC ./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPicturesApp.o ../src/MakingPicturesApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -Wc++0x-extensions -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.5 -gdwarf-2 -Wno-sign-conversion -iquote "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-generated-files.hmap" "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-own-target-headers.hmap" "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-all-target-headers.hmap" -iquote "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-project-headers.hmap" -iquote../../../../../../../../Applications/cinder/include -iquote../include "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug/include" -I../../../../../../../../Applications/cinder/boost "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/DerivedSources/i386" "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/DerivedSources" "-F/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug" -include /var/folders/6v/y6c8z8691v3fhxbwjxbyn0qc0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/MakingPictures_Prefix-blnzvkyatotzwvexwkvobdhqznqm/MakingPictures_Prefix.pch -MMD -MT dependencies -MF "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPicturesApp.d" -c "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/../src/MakingPicturesApp.cpp" -o "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPicturesApp.o"36"BBF60C47-C179-43D3-8087-F2E43280A099-
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection118"Compile /Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/../src/MakingPicturesApp.cpp96aff7b5b1f6b541^ec33abb8b1f6b541^---0#0#0#-19%DVTDocumentLocation2@128"file://localhost/Users/brandonsonoda/Documents/College/SemesterThree/CSE%20274/MakingPictures/xcode/../src/MakingPicturesApp.cpp0000000000000000^2829"CompileC ./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPicturesApp.o ../src/MakingPicturesApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -Wc++0x-extensions -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.5 -gdwarf-2 -Wno-sign-conversion -iquote "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-generated-files.hmap" "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-own-target-headers.hmap" "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-all-target-headers.hmap" -iquote "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-project-headers.hmap" -iquote../../../../../../../../Applications/cinder/include -iquote../include "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug/include" -I../../../../../../../../Applications/cinder/boost "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/DerivedSources/i386" "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/DerivedSources" "-F/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug" -include /var/folders/6v/y6c8z8691v3fhxbwjxbyn0qc0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/MakingPictures_Prefix-blnzvkyatotzwvexwkvobdhqznqm/MakingPictures_Prefix.pch -MMD -MT dependencies -MF "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPicturesApp.d" -c "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/../src/MakingPicturesApp.cpp" -o "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPicturesApp.o"36"B46F1D42-739E-4FEB-BC58-B15745E69017-
 
 CCpResource CinderApp.icns ./build/Debug/MakingPictures.app/Contents/Resources/CinderApp.icns
 s368327352.122125
@@ -4148,14 +4148,14 @@ x./build/Debug/MakingPictures.app/Contents/Resources/CinderApp.icns
 lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Copy ./build/Debug/MakingPictures.app/Contents/Resources/CinderApp.icnsad511fb83af4b541^403320b83af4b541^---0#0#0#-19%DVTDocumentLocation2@166"file://localhost/Users/brandonsonoda/Documents/College/SemesterThree/CSE%20274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/Resources/CinderApp.icns00f44414deffdf42^531"CpResource CinderApp.icns ./build/Debug/MakingPictures.app/Contents/Resources/CinderApp.icns    cd "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/CinderApp.icns" "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/Resources"36"6F7A4792-93A1-4E1A-919B-E3311B102A96-
 
 CLd "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/MacOS/MakingPictures" normal i386
-s368472070.422038
-e368472070.830847
+s368488888.368985
+e368488888.824677
 r1
 xLd
 x/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/MacOS/MakingPictures
 xnormal
 xi386
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection149"Link /Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/MacOS/MakingPictures18256c0670f6b541^c8b2d40670f6b541^---0#0#0#--1132"Ld ./build/Debug/MakingPictures.app/Contents/MacOS/MakingPictures normal i386    cd "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode"    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Developer/usr/bin/clang++ -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk "-L/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug" "-F/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug" -filelist "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPictures.LinkFileList" -mmacosx-version-min=10.5 ../../../../../../../../Applications/cinder/lib/libcinder_d.a -lcurl -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -o "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/MacOS/MakingPictures"36"5C48CB15-51A0-49C2-92ED-FEA950B16B8A-
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection149"Link /Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/MacOS/MakingPicturesbc905eb8b1f6b541^c11ed3b8b1f6b541^---0#0#0#--1132"Ld ./build/Debug/MakingPictures.app/Contents/MacOS/MakingPictures normal i386    cd "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode"    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Developer/usr/bin/clang++ -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk "-L/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug" "-F/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug" -filelist "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/Objects-normal/i386/MakingPictures.LinkFileList" -mmacosx-version-min=10.5 ../../../../../../../../Applications/cinder/lib/libcinder_d.a -lcurl -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -o "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/MacOS/MakingPictures"36"AC174324-886D-4BB6-ADFA-DB24884F7A75-
 
 CProcessInfoPlistFile "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app/Contents/Info.plist" Info.plist
 s368327352.104872
@@ -4183,10 +4183,10 @@ xcom.apple.compilers.llvm.clang.1_0.compiler
 lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Precompile MakingPictures_Prefix.pch139c22b83af4b541^ea7a26b83af4b541^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/brandonsonoda/Documents/College/SemesterThree/CSE%20274/MakingPictures/xcode/MakingPictures_Prefix.pch0000000000000000^2721"ProcessPCH++ /var/folders/6v/y6c8z8691v3fhxbwjxbyn0qc0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/MakingPictures_Prefix-blnzvkyatotzwvexwkvobdhqznqm/MakingPictures_Prefix.pch.pth MakingPictures_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode"    setenv LANG en_US.US-ASCII    /Developer/usr/bin/clang -x c++-header -arch i386 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -Wc++0x-extensions -isysroot /Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -mmacosx-version-min=10.5 -gdwarf-2 -Wno-sign-conversion -iquote "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-generated-files.hmap" "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-own-target-headers.hmap" "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-all-target-headers.hmap" -iquote "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/MakingPictures-project-headers.hmap" -iquote../../../../../../../../Applications/cinder/include -iquote../include "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug/include" -I../../../../../../../../Applications/cinder/boost "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/DerivedSources/i386" "-I/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/MakingPictures.build/Debug/MakingPictures.build/DerivedSources" "-F/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/build/Debug" -c "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/MakingPictures_Prefix.pch" -o /var/folders/6v/y6c8z8691v3fhxbwjxbyn0qc0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/MakingPictures_Prefix-blnzvkyatotzwvexwkvobdhqznqm/MakingPictures_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/6v/y6c8z8691v3fhxbwjxbyn0qc0000gp/C/com.apple.Xcode.502/SharedPrecompiledHeaders/MakingPictures_Prefix-blnzvkyatotzwvexwkvobdhqznqm/MakingPictures_Prefix.pch.d36"2CE0E9B5-8480-4A66-85AD-99258AF9758A-
 
 CTouch "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app"
-s368472070.838892
-e368472070.844199
+s368488888.832464
+e368488888.837565
 r1
 xTouch
 x/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection120"Touch /Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.appeeced60670f6b541^081dd80670f6b541^---0#0#0#--269"Touch ./build/Debug/MakingPictures.app    cd "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode"    /usr/bin/touch -c "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app"36"A8E00CC1-86A1-4828-9E05-38E520B4D665-
+lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection120"Touch /Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.appe82ed5b8b1f6b541^336ad6b8b1f6b541^---0#0#0#--269"Touch ./build/Debug/MakingPictures.app    cd "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode"    /usr/bin/touch -c "/Users/brandonsonoda/Documents/College/SemesterThree/CSE 274/MakingPictures/xcode/./build/Debug/MakingPictures.app"36"E4F921AC-01AE-4ABD-BF2D-D11979F60B88-
 
