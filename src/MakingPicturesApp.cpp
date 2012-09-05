@@ -51,6 +51,7 @@ int blue = 0;
 
 double count_ = 0;
 double speed = .05;
+bool blur = false;
 
 void MakingPicturesApp::setup()
 {
@@ -68,6 +69,9 @@ void MakingPicturesApp::mouseDown( MouseEvent event )
     if(abs(appWidth-50-posX)<=20 && abs(50-posY)<=20)
         speed = .3-speed;
     
+    if(abs(appWidth-100-posX)<=20 && abs(50-posY)<=20)
+            blur = !blur;
+    
     
     
     
@@ -83,7 +87,7 @@ void MakingPicturesApp::update()
     
     uint8_t* data_array = (*my_surface_).getData();
     gradientBackground(data_array, 100, 0, 150, 0, 0, 50);
-    fill(0, 200, 255);
+     fill(0, 200, 255);
     drawRect(vertRectX, appHeight/2, 80, 400, data_array);
     fill(255, 0, 0);
     drawCircle2(appWidth/2-200, appHeight/2, 200, data_array, outerCircleRad);
@@ -100,19 +104,27 @@ void MakingPicturesApp::update()
     fill(0);
     drawLine(appWidth/2, horRectY, appWidth/2+275, horRectY-75, data_array);
     drawLine(appWidth/2, horRectY, appWidth/2-275, horRectY-75, data_array);
-
-    fill(255, 0, 0);
-    drawCircle2(appWidth-50, 50, 20, data_array, 20);
     
     if(speed < .3-speed){
-    fill(0, 255, 255);
+    fill(255, 0, 0);
     } else{
         fill(0, 255, 0);
     }
+    drawCircle2(appWidth-50, 50, 20, data_array, 20);
+    
+    fill(0, 255, 255);
     drawCircle2(appWidth-50, 50, 20, data_array, 5);
     
-    blurScreen(data_array);
-
+    fill(255, 0, 255);
+    if(blur){
+        fill(255,255, 0);
+    }
+    drawCircle2(appWidth-100, 50, 20, data_array, 20);
+    fill(0, 255, 255);
+    drawCircle2(appWidth-100, 50, 20, data_array, 5);
+    
+    if(blur)
+        blurScreen(data_array);
     
     count_+=speed;
 }
