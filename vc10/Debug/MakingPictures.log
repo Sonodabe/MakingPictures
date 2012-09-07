@@ -1,0 +1,34 @@
+﻿Build started 9/6/2012 10:19:04 PM.
+     1>Project "C:\Users\Jordan\Documents\CSE274\MakingPictures\vc10\MakingPictures.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\MakingPictures.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\cinder_0.8.4_vc2010\boost /IC:\cinder_0.8.4_vc2010\include /I..\include /I..\..\..\..\..\..\..\..\Applications\cinder\include /I..\..\..\..\..\..\..\..\Applications\cinder\boost /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\MakingPicturesApp.cpp
+         MakingPicturesApp.cpp
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(84): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(85): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(86): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(87): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(213): warning C4244: '=' : conversion from 'double' to 'uint8_t', possible loss of data
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(214): warning C4244: '=' : conversion from 'double' to 'uint8_t', possible loss of data
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(215): warning C4244: '=' : conversion from 'double' to 'uint8_t', possible loss of data
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(291): error C2668: 'sqrt' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\math.h(589): could be 'long double sqrt(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\math.h(541): or       'float sqrt(float)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\math.h(127): or       'double sqrt(double)'
+                 while trying to match the argument list '(int)'
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(291): error C3861: 'round': identifier not found
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(301): error C2668: 'sqrt' : ambiguous call to overloaded function
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\math.h(589): could be 'long double sqrt(long double)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\math.h(541): or       'float sqrt(float)'
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\math.h(127): or       'double sqrt(double)'
+                 while trying to match the argument list '(int)'
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(301): error C3861: 'round': identifier not found
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(333): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(334): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jordan\documents\cse274\makingpictures\src\makingpicturesapp.cpp(417): error C3861: 'round': identifier not found
+     1>Done Building Project "C:\Users\Jordan\Documents\CSE274\MakingPictures\vc10\MakingPictures.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:05.05

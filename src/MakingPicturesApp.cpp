@@ -35,10 +35,11 @@ int getIndex(int posX, int posY);
 void drawCircle(int posX, int posY, int radius, uint8_t* data);
 void drawCircle(int posX, int posY, int radius, uint8_t* data, int repeats);
 void drawCircle2(int posX, int posY, int radius, uint8_t* data, int repeats);
-void fill(int r, int g, int b);
+// for methods that use colors, I would use a Color8u variable to make it easier on someone using the method
+void fill(Color8u color);
 void fill(int greyScale);
 void clearBackground(uint8_t* data);
-void gradientBackground(uint8_t* data, int r1, int g1, int b1, int r2, int g2, int b2);
+void gradientBackground(uint8_t* data, Color8u color1, Color8u color2);
 void drawRect(int posX, int posY, int width, int height, uint8_t* data);
 void drawLine(int xOne, int yOne, int xTwo, int yTwo, uint8_t* data);
 void drawPixel(int index, uint8_t* data);
@@ -49,6 +50,7 @@ int red = 0;
 int green = 0;
 int blue = 0;
 
+// I would add in some comments explaining what exactly these do
 double count_ = 0;
 double speed = .05;
 bool blur = false;
@@ -86,41 +88,42 @@ void MakingPicturesApp::update()
     
     
     uint8_t* data_array = (*my_surface_).getData();
-    gradientBackground(data_array, 100, 0, 150, 0, 0, 50);
-     fill(0, 200, 255);
+
+    gradientBackground(data_array, Color8u(100, 0, 150), Color8u(0, 0, 50));
+     fill(Color8u(0, 200, 255));
     drawRect(vertRectX, appHeight/2, 80, 400, data_array);
-    fill(255, 0, 0);
+    fill(Color8u(255, 0, 0));
     drawCircle2(appWidth/2-200, appHeight/2, 200, data_array, outerCircleRad);
-    fill(0, 0, 255);
+    fill(Color8u(0, 0, 255));
     drawCircle2(appWidth/2+200, appHeight/2, 200, data_array, outerCircleRad);
-    fill(255, 255, 0);
+    fill(Color8u(255, 255, 0));
     drawRect(appWidth/2, horRectY, 550, 150, data_array);
     fill(0);
     drawLine(appWidth/2, horRectY, appWidth/2-275, horRectY+75, data_array);
     drawLine(appWidth/2, horRectY, appWidth/2+275, horRectY+75, data_array);
 
-    fill(0, 255, 0);
+    fill(Color8u(0, 255, 0));
     drawCircle(appWidth/2, appHeight/2, innerCircleRad, data_array, 105);
     fill(0);
     drawLine(appWidth/2, horRectY, appWidth/2+275, horRectY-75, data_array);
     drawLine(appWidth/2, horRectY, appWidth/2-275, horRectY-75, data_array);
     
     if(speed < .3-speed){
-    fill(255, 0, 0);
+    fill(Color8u(255, 0, 0));
     } else{
-        fill(0, 255, 0);
+        fill(Color8u(0, 255, 0));
     }
     drawCircle2(appWidth-50, 50, 20, data_array, 20);
     
-    fill(0, 255, 255);
+    fill(Color8u(0, 255, 255));
     drawCircle2(appWidth-50, 50, 20, data_array, 5);
     
-    fill(255, 0, 255);
+    fill(Color8u(255, 0, 255));
     if(blur){
-        fill(255,255, 0);
+        fill(Color8u(255,255, 0));
     }
     drawCircle2(appWidth-100, 50, 20, data_array, 20);
-    fill(0, 255, 255);
+    fill(Color8u(0, 255, 255));
     drawCircle2(appWidth-100, 50, 20, data_array, 5);
     
     if(blur)
@@ -142,10 +145,10 @@ void MakingPicturesApp::prepareSettings(Settings* settings){
  *  @param g The new green value (0-255)
  *  @param b The new blue value (0-255)
  **/
-void fill(int r, int g, int b){
-    red = r;
-    green = g;
-    blue = b;
+void fill(Color8u color){
+    red = color.r;
+    green = color.g;
+    blue = color.b;
 }
 
 /**
@@ -198,7 +201,7 @@ void clearBackground(uint8_t* data){
  *  @param g2 The Green component of the bottom color
  *  @param b2 The Blue component of the bottom color
  **/
-void gradientBackground(uint8_t* data, int r1, int g1, int b1, int r2, int g2, int b2){
+void gradientBackground(uint8_t* data, Color8u color1, Color8u color2, int b2){
     int index;
     double percentAcross;
 
@@ -207,9 +210,9 @@ void gradientBackground(uint8_t* data, int r1, int g1, int b1, int r2, int g2, i
             index = getIndex(tempX, tempY);
             if(index >= 0 && index < appWidth*appHeight*3){
                 percentAcross = (double)tempY/appHeight;
-                data[index+0] = percentAcross*r2+(1-percentAcross)*r1;
-                data[index+1] = percentAcross*g2+(1-percentAcross)*g1;
-                data[index+2] = percentAcross*b2+(1-percentAcross)*b1;
+                data[index+0] = percentAcross*color2.r+(1-percentAcross)*color1.r;
+                data[index+1] = percentAcross*color2.g+(1-percentAcross)*color1.g;
+                data[index+2] = percentAcross*color2.b+(1-percentAcross)*color1.b;
             }
         }
     }
@@ -284,7 +287,8 @@ void drawCircle(int posX, int posY, int radius, uint8_t* data, int repeats){
     // but also makes the method less efficient.
     
     for(int i = max(0, posX-radius); i<min(appWidth, posX+radius); i++){
-        deltaY = round(sqrt(radius*radius-(i-posX)*(i-posX)));
+        //this next line is giving me a build error sometimes and I'm not sure why, it says "ambiguous call to overloaded function"
+		deltaY = round(sqrt(radius*radius-(i-posX)*(i-posX))); 
         index = getIndex(i, posY+deltaY);
         drawPixel(index, data);   
         index = getIndex(i, posY-deltaY);
@@ -304,7 +308,7 @@ void drawCircle(int posX, int posY, int radius, uint8_t* data, int repeats){
     drawCircle(posX, posY, radius-1, data, repeats-1);
 }
 
-
+// these are both good solutions, but I'm not sure why you need 2 methods for circles
 /**
  *  Draws a circle using the sin() function, and it's periodicness
  *  This is a recursive method, which allows for completely filled
